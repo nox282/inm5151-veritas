@@ -23,3 +23,9 @@ This solution simplify the usage of Tiled2Unity. Once setup you will need only a
 ### help
     mono [pathToCS-Script]/cscs.exe Tiles2UnityLite.cs --help
 This command will provide you with a number of arguments you can add to your export command
+
+#Troubleshooting
+
+If - when importing a .tmx file - the prefab doesn't update itself, you will need to remove the `Tiled2Unity` folder and re-import it. this is done by:
+	
+	dropdown menu Assets > Import Package > Custom Package... then select the .unitypackage file.

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" renderorder="right-down" width="50" height="50" tilewidth="256" tileheight="128" nextobjectid="1">
- <tileset firstgid="1" name="256_base" tilewidth="256" tileheight="256" tilecount="92">
+ <tileset firstgid="1" name="256_base" tilewidth="256" tileheight="256" tilecount="92" columns="4">
   <image source="256_base.png" width="1024" height="6000"/>
  </tileset>
- <tileset firstgid="93" name="256_decor" tilewidth="256" tileheight="256" tilecount="92">
+ <tileset firstgid="93" name="256_decor" tilewidth="256" tileheight="256" tilecount="92" columns="4">
   <image source="256_decor.png" width="1024" height="6000"/>
+ </tileset>
+ <tileset firstgid="185" name="meta_tileset" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="TileGameResources/meta_tiles.png" width="67" height="34"/>
+  <tile id="0">
+   <properties>
+    <property name="Collidable" type="bool" value="true"/>
+   </properties>
+   <objectgroup draworder="index">
+    <object id="6" x="0.0704836" y="-0.140967" width="31.9291" height="32.07"/>
+   </objectgroup>
+  </tile>
  </tileset>
  <layer name="Tile Layer 1" width="50" height="50">
   <data encoding="base64" compression="zlib">
@@ -13,7 +24,7 @@
  </layer>
  <layer name="Tile Layer 1 (decor)" width="50" height="50">
   <data encoding="base64" compression="zlib">
-   eJzVmNtuwjAMhnMDjzmpu9mkDZjawmAHKFxs2qTtmddIsTCe4zjpIeWTrLShQf5rO0ljjJ6G2CJiLFC09uRslTC+Lxpnh9b2CeM5Hcs+HEugMZc6YuICOlYmbzy6YnWAhqWzlPzMjdUB/gO5dHx3GFu4duEsV21gUut8Snl0SBxXkPtcmnwxeFGOpzo0rBPGAI0zjndh3H1rt4LdoWfflL500WFpTHz+pLzvHHB5hXOc08HVAO7TxiUWKQahOSomHjvhtzVpuwA+S/XwSu4lHTgGdFxfpM6jFKwD/B4qbyS4dx+z3uWu873n2kft6S+E38YgFHvwrWrtA/VVqN+SOx4hQusb2KPJG4+F59pi3zXkC7XS/V6j53IwUz4HOkpz1lCZ/7pAR8X8x5DMDK8Fz+/wnqmG0lzGo0bPjcEJXc/NWYsUG5pXJXM/dF7tSIuZm0stN4av3wdPP7ef1cRjS+59+w/tvoTqkKhRC75CHZRm/HmK5pVWh4Wr3xj/aRxC0Hic2KcudVBC35yhOUny+TkwNsQRXVutXI1Le9GU7+mYGGxcS+Ng/Zb23VI+wf4jxveQz13jgPHlGNDXPhu/01T/j+FHWKT9SYit5xqz8fRfAxrfpW9cLUOeheF8onqkNa4PXV3o41xgTIbwN7WmY9H4rp2XQv+lmTOGhqtrbfysz9pvT2xTAvKK2/v7YjJUrLrUzZdrsY5cORWDr66tjin6HxujqZ8dWULrm43D1HSkrsm58qrvNVEbDzinGZOYtRrrKFH7a8Y7UwI0MaLa4LvNl1efrf04y3GuYZG+SSk4Hvg8hvZNHdAxhTVEyqtQbGid41jA+eU14JuvpHz6A51ijIM=
+   eJzNmd1uE0EMhX3TPiZSuAEJbYvaTZtQWlIuQCDB+2SfjowYqycntmd2ssnmk6yZTGdbnxx7/ypSz4aiG3GsstjF5xy3DcdPxSbHt128NBxv6biZIrEGNrKvY4wvquNW5vXjWJIO1XCTo6U+5ybp0PyVuXT83sU2h7J19jKLPHY55uoNhHXUaEk6LqmOUp9z3lsaLRb0eS5NfK7VnL/ImyeRN6yjhmXDMcomh8VzHgexPcF4n0PnH2Df18pcjtGR2Mj/+vEY8mj1CXvCmmv76VRgXQ2yn1+aL+RQSwf7dG8Hn2t9GUvkAfeH5qeatP5ZC+rd0h6LJY3HoDk/B3sGCtSho+roZJyWFiIPEP6ORWwd1l7r2lk6v7VifffWuRZriQP3iRzq8DyZQsuLM7dIf6+X/T4f5LDvMTfWYWmYQkfpnNHn8Z5ys3TwOYzXz1lfzEfj72H+nidYa9wjpbGFzpknkgfWdYF72PrueV7TIy06rir3lXSUtFjXkCm1XDlanmBe8sPKNdIT9QjPI77D/Bq0RN7U6Ih8EUeH54WlZU0jck1a3snbPSrGJ2cdo6TF648US0dH7X0J64joYbzL8/s83kn8/Vs6op4XsT1BuK5qdWDeSA/zsTo431LPY+4I6mBKz5yWJvRkZeRfk7cYa+zLK8yXYvf4k/jUPE9HPVEb2he4Ft13R/X0Y0TuCnqANVbqi6hXPE+8GlOmeD5jHY/i586fcf3VWS8R3Z+UWNHcuo+PrhHRtZB9OicDjZqHFevg59axFqd8F4aePBj5WHlFOsTYfwr4+jvGEwn24PqUjHmPwX2SKF0TcI91HjuGmtwfnXXWUfpdes7Y5vkpPfF4MNZq/Us5p2dPfJ+K4d2jXhJaV/wu2/JEWRlrU3DM+79feUQdWF84XhLc10rSYX3Pc2sY61HL/0jOzbrw8+TDpeko5ezh1dWpmeLdPlLrR3qO64u7psXraQvUcQfjX/h8Lmo8Ym363ObV1c9d/MmR9Jzbi0T0TMqgH/g+htcuHdUxR68zUV2VvOE+Ry96maeeWvDOV1E9/QOrjbkj
   </data>
  </layer>
  <layer name="Tile Layer 2" width="50" height="50" offsetx="0" offsety="-48">
