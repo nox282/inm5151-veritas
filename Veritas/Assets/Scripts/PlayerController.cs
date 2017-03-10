@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
         body = GetComponent<Rigidbody2D>();
         positionTo = body.position;
+
+        body.gravityScale = 0;
         Spawn();
 	}
 	
@@ -22,6 +24,10 @@ public class PlayerController : MonoBehaviour {
             positionTo = new Vector2(clicked.x, clicked.y);
         }
         body.position = Vector2.MoveTowards(body.position, positionTo, Time.deltaTime*3f);
+
+
+        //TODO : Change this OR change boxcollider2d to polygon which will be a circle
+        transform.rotation = Quaternion.Euler(new Vector2(0,0));
 	}
 
     // Method that Spawn the player somewhere on the map

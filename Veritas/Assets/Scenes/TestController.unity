@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 514196881}
   - component: {fileID: 514196883}
   - component: {fileID: 514196884}
+  - component: {fileID: 514196885}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -140,7 +141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: f4094e33a249c4a66bb59c932e72cdc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 514196880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15, y: -7.779, z: -1}
-  m_LocalScale: {x: 4.052361, y: 2.5478394, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -188,6 +189,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &514196885
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514196880}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.6030471}
+  serializedVersion: 2
+  m_Size: {x: 0.5637038, y: 0.4943887}
 --- !u!1001 &671413743
 Prefab:
   m_ObjectHideFlags: 0
@@ -235,6 +250,11 @@ Prefab:
     - target: {fileID: 60228530360392100, guid: b5ae3e47a9ff2406fa11a482340aacfd,
         type: 2}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114817800168572762, guid: b5ae3e47a9ff2406fa11a482340aacfd,
+        type: 2}
+      propertyPath: InitialOpacity
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
