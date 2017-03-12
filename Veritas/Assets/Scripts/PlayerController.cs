@@ -22,15 +22,19 @@ public class PlayerController : MonoBehaviour {
     // Listen for clicks to move the player around
 	void Update () {
         if (Input.GetMouseButton(0)) {
-            Vector2 clicked = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            positionTo = new Vector2(clicked.x, clicked.y);
+            UpdateDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
-        body.position = Vector2.MoveTowards(body.position, positionTo, Time.deltaTime*3f);
+        UpdatePosition();
+    }
 
+    void UpdateDestination(Vector2 clicked){
+        positionTo = new Vector2(clicked.x, clicked.y);
+    }
 
+    void UpdatePosition(){
+        body.position = Vector2.MoveTowards(body.position, positionTo, Time.deltaTime * 1.5f);
         //TODO : Change this OR change boxcollider2d to polygon which will be a circle
-        transform.rotation = Quaternion.Euler(new Vector2(0,0));
-
+        transform.rotation = Quaternion.Euler(new Vector2(0, 0));
     }
 
     Vector2 getDirections(Vector2 bPos, Vector2 tPos, float precision)
