@@ -5,15 +5,19 @@ using UnityEngine;
 
 // PlayerController script must be added to the player GameObject
 public class PlayerController : MonoBehaviour {
+    public Vector2 tooltipOffset;
+    public Vector2 tooltipSize;
+    public float speed = 1.5f;
 
-    //private Rigidbody body;
+    //true to display tooltip on player
+    private bool bringUpToolTip;
+
     private Rigidbody2D body;
-
     private Vector2 positionTo;
 
 	void Start () {
         body = GetComponent<Rigidbody2D>();
-        positionTo = body.position;
+        positionTo = transform.position;
 
         body.gravityScale = 0;
         Spawn();
@@ -32,37 +36,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     void UpdatePosition(){
-        body.position = Vector2.MoveTowards(body.position, positionTo, Time.deltaTime * 1.5f);
+        transform.position = Vector2.MoveTowards(body.position, positionTo, speed * Time.deltaTime);
         //TODO : Change this OR change boxcollider2d to polygon which will be a circle
         transform.rotation = Quaternion.Euler(new Vector2(0, 0));
-    }
-
-    Vector2 getDirections(Vector2 bPos, Vector2 tPos, float precision)
-    {
-        Vector2 relPos = tPos - bPos;
-        Vector2 toReturn = bPos;
-        float coef = 0.5f;
-        float x = relPos.x;
-        float y = relPos.y;
-
-        if ((Math.Abs(x) + Math.Abs(y)) < precision) return bPos;
-
-        if (x <= 0 && Math.Abs(x * coef) >= Math.Abs(y)) {
-            //Debug.Log("2");
-            toReturn.x -= 10;
-        }else if (x > 0 && Math.Abs(x * coef) >= Math.Abs(y)) {
-            //Debug.Log("4");
-            toReturn.x += 10;
-        }
-        else if (y >= 0 && Math.Abs(x * coef) < Math.Abs(y)) {
-            //Debug.Log("1");
-            toReturn.y += 10;
-        }
-        else {
-            //Debug.Log("3");
-            toReturn.y -= 10;
-        }
-        return toReturn;
     }
 
     // Method that Spawn the player somewhere on the map
@@ -70,8 +46,26 @@ public class PlayerController : MonoBehaviour {
 
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Collision!!  ");
+
+    void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("walls"))
+            positionTo = transform.position;
+    }
+
+    void OnTriggerEnter2D(Collider2D collision){
+        bringUpToolTip = true;
+    }
+
+    void OnTriggerExit2D(Collider2D collision){
+        bringUpToolTip = false;
+    }
+
+    void OnGUI(){
+        if(bringUpToolTip){
+            Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
+            pos += tooltipOffset;
+            
+            GUI.Box(new Rect(pos.x, pos.y, tooltipSize.x, tooltipSize.y), "Appuies sur espace pour ramasser!");
+        }
     }
 }

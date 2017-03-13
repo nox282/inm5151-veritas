@@ -9,12 +9,10 @@ public class CameraController : MonoBehaviour {
     Vector3 from;
     Vector3 to;
 
-	// Use this for initialization
 	void Start () {
         
 	}
 	
-	// Update is called once per frame
 	void Update () {
         FollowPlayer();
     }
