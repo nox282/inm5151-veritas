@@ -5,26 +5,23 @@ using UnityEngine;
 
 namespace Veritas {
 
-	public interface Character {
+	public interface ICharacter {
 
 		String Name{get;set;}
-		IInventory<IItem> Equipment{get;}
-		IInventory<IItem> Bag{get;}
-		IInventory<Quest> QuestLog{get;}
 
 		// Returns the type of cell the character is standing on;
-		Type scan();
-		Type[] scanAround();
+		GameObject scan();
+		GameObject[] scanAround();
 
 		// Character picks up something he is standing on
-		void pickUp(IItem i);
+		void pickUp(Item i);
 		// Assign Quest to Character's QuestLog
 		void pickUp(Quest q);
 
-		void drop(IItem i);
+		void drop(Item i);
 		void drop(Quest q);
 
-		void equip(IItem i);
-		void unequip(IItem i);
+		void equip(Item i);
+		void unequip(Item i);
 	}
 }

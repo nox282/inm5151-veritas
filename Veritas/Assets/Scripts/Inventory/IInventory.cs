@@ -5,11 +5,7 @@ using UnityEngine;
 
 namespace Veritas {
 
-	public interface IInventory<T> {
-		
-		GameObject Character{get;set;}
-		List<T> Inventory{set;}
-
+	public interface IInventory<T> where T : class {
 		// Returns true if Inventory have this item
 		bool isThere(T item);
 		bool isThereTypeOf(T item);

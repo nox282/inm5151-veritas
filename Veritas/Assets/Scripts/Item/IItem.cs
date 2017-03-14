@@ -6,8 +6,6 @@ using UnityEngine;
 namespace Veritas {
 
 	public interface IItem {
-		GameObject item{get;set;}
-
 		void use();
 	}
 }

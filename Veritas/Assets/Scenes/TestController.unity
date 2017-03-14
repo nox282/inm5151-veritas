@@ -154,7 +154,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.558, y: -11.906, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 695644359}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,7 +172,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipOffset: {x: 20, y: -70}
   tooltipSize: {x: 250, y: 25}
-  speed: 1.5
+  speed: 2
+  heightOffset: 0.7
+  bag: {fileID: 0}
+  equipement: {fileID: 0}
+  questLog: {fileID: 0}
 --- !u!50 &514196884
 Rigidbody2D:
   serializedVersion: 4
@@ -210,6 +215,63 @@ PolygonCollider2D:
       - {x: -0.7, y: 0}
       - {x: 0, y: -0.36}
       - {x: 0.7, y: 0}
+--- !u!1 &695644358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 695644359}
+  - component: {fileID: 695644360}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &695644359
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695644358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 514196882}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &695644360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 695644358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8579a78b19be44307ac141c60b95971f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1097965258 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1587645982633310, guid: 14407da3667464e06b6d6aa800ed0e54,
+    type: 2}
+  m_PrefabInternal: {fileID: 1456228969}
+--- !u!114 &1097965261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097965258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7b1682967844e86982971a075eec16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Pomme
 --- !u!1 &1403896046
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1587645982633310, guid: 14407da3667464e06b6d6aa800ed0e54, type: 2}
       propertyPath: m_TagString
-      value: Untagged
+      value: pickUps
       objectReference: {fileID: 0}
     - target: {fileID: 1932512806533274, guid: 14407da3667464e06b6d6aa800ed0e54, type: 2}
       propertyPath: m_TagString
