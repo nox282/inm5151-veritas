@@ -5,6 +5,7 @@ Veritas est un jeu RPG éducatif qui vise les enfants de 5 à 15 ans.
 * Giulia Cantoni
 * Nicolas Hamard
 * Samuel Pilon
+* Alyson
 ## Installation
 TODO: Describe the installation process
 ## Usage
