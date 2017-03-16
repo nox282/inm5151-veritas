@@ -13,4 +13,8 @@ public class Client : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnMouseDown() {
+        Debug.Log("clic!"); 
+    }
 }
