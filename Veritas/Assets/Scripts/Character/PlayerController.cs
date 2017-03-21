@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour, ICharacter {
         if(Input.GetKeyDown(KeyCode.Space)){
             pickup();
         }
-        UpdatePosition();
+            UpdatePosition();
     }
 
     void UpdateDestination(Vector2 clicked){
@@ -56,10 +56,10 @@ public class PlayerController : MonoBehaviour, ICharacter {
 
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.CompareTag("walls"))
+    private void OnCollisionStay2D(Collision2D collision){
+        if (collision.gameObject.CompareTag("walls")){
             positionTo = transform.position;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision){
