@@ -7,7 +7,7 @@ using Veritas;
 
 // PlayerController script must be added to the player GameObject
 public class PlayerController : MonoBehaviour, ICharacter {
-    public Vector2 tooltipOffset;
+    public Vector3 tooltipOffset;
     public Vector2 tooltipSize;
     public float speed = 1.5f;
     public float heightOffset;
@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour, ICharacter {
     //Flags
     private bool bringUpToolTip;    //true: display tooltip on player
     private bool canPickup;          //true: player can pick up an Item 
+    private Vector2 pickupLocation;
 
     private Rigidbody2D body;
     private Vector2 positionTo;
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour, ICharacter {
 	void Start () {
         body = GetComponent<Rigidbody2D>();
         positionTo = transform.position;
+        pickupLocation = transform.position;
+        tooltipOffset = new Vector3(0.3f, 1f, 0);
 
         body.gravityScale = 0;
         Spawn();
@@ -63,25 +66,25 @@ public class PlayerController : MonoBehaviour, ICharacter {
     }
 
     void OnTriggerEnter2D(Collider2D collision){
-        bringUpToolTip = true;
         if(collision.gameObject.CompareTag("pickUps")){
             canPickup = true;
+            bringUpToolTip = true;
+            pickupLocation = collision.gameObject.GetComponent<PolygonCollider2D>().points[1];
         }
     }
 
     void OnTriggerExit2D(Collider2D collision){
-        bringUpToolTip = false;
         if(collision.gameObject.CompareTag("pickUps")){
             canPickup = false;
+            bringUpToolTip = false;
+            pickupLocation = transform.position;
         }
     }
 
     void OnGUI(){
         if(bringUpToolTip){
-            Vector2 pos = Camera.main.WorldToScreenPoint(transform.position);
-            pos += tooltipOffset;
-
-            GUI.Box(new Rect(pos.x, pos.y, tooltipSize.x, tooltipSize.y), "Appuies sur espace pour ramasser!");
+            Vector2 pos = Camera.main.WorldToScreenPoint(transform.position + tooltipOffset);
+            GUI.Box(new Rect(pos.x, Screen.height - pos.y, tooltipSize.x, tooltipSize.y), "Appuies sur espace pour ramasser!");
         }
     }
 

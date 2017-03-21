@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour {
     public float stiffness;
     Vector3 from;
     Vector3 to;
+    Vector3 velocity = Vector3.zero;
 
 	void Start () {
         
@@ -21,6 +22,6 @@ public class CameraController : MonoBehaviour {
         from = transform.position;
         to = toFollow.position;
         to.z = from.z;
-        transform.position = Vector3.Lerp(from, to, stiffness * Time.deltaTime);
+        transform.position = Vector3.SmoothDamp(from, to, ref velocity, stiffness);
     }
 }
