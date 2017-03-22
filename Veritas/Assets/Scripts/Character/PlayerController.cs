@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour, ICharacter {
         if(Input.GetKeyDown(KeyCode.Space)){
             pickup();
         }
-            UpdatePosition();
+        UpdatePosition();
     }
 
     void UpdateDestination(Vector2 clicked){
