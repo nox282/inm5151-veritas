@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Client : MonoBehaviour {
 
+    string URL = "http://localhost:5000/index";
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,34 +19,29 @@ public class Client : MonoBehaviour {
 
     private void OnMouseDown() {
         //Debug.Log("clic!");
-        string jsonstr = ReadJsonFile(Application.dataPath + "/Scripts/MockClient/" + "TestData.json");
+        Bonhomme myBonhomme = ReadJsonFile(Application.dataPath + "/Scripts/MockClient/" + "TestData.json");
+
+        StartCoroutine(POST(URL, myBonhomme.toDictionnary()));
         //POST(jsonstr); 
         
     }
 
-    private string ReadJsonFile(string jsonfile) {
+    private Bonhomme ReadJsonFile(string jsonfile) {
         Bonhomme myBonhomme = new Bonhomme(); 
-
         string jsondata = File.ReadAllText(jsonfile);
-
         myBonhomme = JsonUtility.FromJson<Bonhomme>(jsondata); 
-
-        Debug.Log(jsondata);
-        Debug.Log(myBonhomme.name+", "+myBonhomme.funlevel+", "+myBonhomme.color);
-
-        return jsondata; 
+        return myBonhomme; 
     }
 
-    /*public WWW POST(string jsonstr) {
-        WWW www;
-        Hashtable postHeader = new Hashtable();
-        postHeader.Add("Content-Type", "application/json");
+    IEnumerator POST(string url, Dictionary<string, string> dict){
+        WWWForm toSend = new WWWForm();
 
-        // convert json string to byte
-        var formData = System.Text.Encoding.UTF8.GetBytes(jsonstr);
+        foreach (KeyValuePair<string, string> kv in dict){
+            toSend.AddField(kv.Key, kv.Value);
+        }
 
-        www = new WWW(POSTAddUserURL, formData, postHeader);
-        StartCoroutine(WaitForRequest(www));
-        return www;
-    }*/
+        WWW www = new WWW(url, toSend);
+
+        yield return www;
+    }
 }
