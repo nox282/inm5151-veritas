@@ -6,7 +6,7 @@ using UnityEngine;
 using Veritas;
 
 // PlayerController script must be added to the player GameObject
-public class PlayerController : MonoBehaviour, ICharacter {
+public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     public Vector3 tooltipOffset;
     public Vector2 tooltipSize;
     public float speed = 1.5f;
@@ -143,4 +143,12 @@ public class PlayerController : MonoBehaviour, ICharacter {
     public void drop(Quest q) {return;}    //TODO: Implement
     public void equip(Item i) {return;}    //TODO: Implement
     public void unequip(Item i) {return;} //TODO: Implement
+
+// ISendServer Interface
+    public Dictionary<string, string> toDictionnary(){
+        Dictionary<string, string> dict = new Dictionary<string, string>();
+        dict.Add("PosX", (transform.position.x).ToString());
+        dict.Add("PosY", (transform.position.y).ToString());
+        return dict;
+    }
 }
