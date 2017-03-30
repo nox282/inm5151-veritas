@@ -7,19 +7,22 @@ using Veritas;
 
 public class PlayerInventory : MonoBehaviour, IInventory<Item> {
 
-	void Start(){
-		inventory = new List<Item>();
+	void Awake(){
+		inventory = new List<Item>(12);
+        for (int i = 0; i < 12; i++){
+            inventory.Add(new Item("None"));
+        }
 	}
 
 //IIventory Impementation
 	private List<Item> oldInventory;
 
 	private List<Item> inventory;
-	public List<Item> Inventory{set{inventory = value;}}
+	public List<Item> Inventory{ get { return inventory; } set{inventory = value;}}
 
 	// Returns true if Inventory have this item
 	public bool isThere(Item item){
-		return inventory.Find(a => a == item);
+		return inventory.Contains(item);
 	}
 
 	public bool isThereTypeOf(Item item) {
@@ -28,7 +31,14 @@ public class PlayerInventory : MonoBehaviour, IInventory<Item> {
 
 	// Adds item to the Inventory
 	public void receive(Item item){
-		inventory.Add(item);
+        for (int i = 0; i < 12; i++)
+        {
+            if (inventory[i].itemName == "None"){
+                inventory[i] = item;
+                return;
+            }
+        }
+        Debug.Log("L'inventaire est plein! Impossible de ramasser l'objet!"); // To FIX
 	}
 
 	public void receive(List<Item> items){

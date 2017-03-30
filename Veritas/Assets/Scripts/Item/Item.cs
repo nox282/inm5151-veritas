@@ -4,8 +4,13 @@ using UnityEngine;
 
 using Veritas;
 
-public class Item : MonoBehaviour, IItem {
+public class Item : IItem {
 	public string itemName;
+
+    public Item(string itemName){
+        this.itemName = itemName;
+    }
+
 	public void use(){
 		Debug.Log("Item used");
 	}

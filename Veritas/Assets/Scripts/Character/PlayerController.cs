@@ -21,7 +21,11 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     private Rigidbody2D body;
     private Vector2 positionTo;
 
-	void Start () {
+    private void Awake(){
+        bag = GetComponentInChildren<PlayerInventory>();
+    }
+
+    void Start () {
         body = GetComponent<Rigidbody2D>();
         positionTo = transform.position;
         pickupLocation = transform.position;
@@ -29,8 +33,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
         body.gravityScale = 0;
         Spawn();
-
-        bag = GetComponentInChildren<PlayerInventory>();
 	}
 	
     // Listen for clicks to move the player around
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         target.y -= col.bounds.extents.y + 0.1f;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("pickUps"))
             return hit.collider.gameObject;
         return null;
     }
@@ -123,8 +125,8 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         GameObject item = scan();
         if(item == null) return;
 
-        pickUp(item.GetComponent<Item>());
-        Debug.Log(item.GetComponent<Item>().itemName);
+        pickUp(new Item(item.GetComponent<ItemCollision>().itemName)); 
+        Debug.Log("Picked up : " + item.GetComponent<ItemCollision>().itemName);
         if(item != gameObject)
             Destroy(item);
 
