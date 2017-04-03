@@ -6,7 +6,7 @@ using UnityEngine;
 using Veritas;
 
 // PlayerController script must be added to the player GameObject
-public class PlayerController : MonoBehaviour, ICharacter {
+public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     public Vector3 tooltipOffset;
     public Vector2 tooltipSize;
     public float speed = 1.5f;
@@ -21,7 +21,11 @@ public class PlayerController : MonoBehaviour, ICharacter {
     private Rigidbody2D body;
     private Vector2 positionTo;
 
-	void Start () {
+    private void Awake(){
+        bag = GetComponentInChildren<PlayerInventory>();
+    }
+
+    void Start () {
         body = GetComponent<Rigidbody2D>();
         positionTo = transform.position;
         pickupLocation = transform.position;
@@ -29,8 +33,6 @@ public class PlayerController : MonoBehaviour, ICharacter {
 
         body.gravityScale = 0;
         Spawn();
-
-        bag = GetComponentInChildren<PlayerInventory>();
 	}
 	
     // Listen for clicks to move the player around
@@ -107,7 +109,7 @@ public class PlayerController : MonoBehaviour, ICharacter {
         target.y -= col.bounds.extents.y + 0.1f;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.gameObject.CompareTag("pickUps"))
             return hit.collider.gameObject;
         return null;
     }
@@ -123,8 +125,8 @@ public class PlayerController : MonoBehaviour, ICharacter {
         GameObject item = scan();
         if(item == null) return;
 
-        pickUp(item.GetComponent<Item>());
-        Debug.Log(item.GetComponent<Item>().itemName);
+        pickUp(new Item(item.GetComponent<ItemCollision>().itemName)); 
+        Debug.Log("Picked up : " + item.GetComponent<ItemCollision>().itemName);
         if(item != gameObject)
             Destroy(item);
 
@@ -143,4 +145,12 @@ public class PlayerController : MonoBehaviour, ICharacter {
     public void drop(Quest q) {return;}    //TODO: Implement
     public void equip(Item i) {return;}    //TODO: Implement
     public void unequip(Item i) {return;} //TODO: Implement
+
+// ISendServer Interface
+    public Dictionary<string, string> toDictionnary(){
+        Dictionary<string, string> dict = new Dictionary<string, string>();
+        dict.Add("PosX", (transform.position.x).ToString());
+        dict.Add("PosY", (transform.position.y).ToString());
+        return dict;
+    }
 }
