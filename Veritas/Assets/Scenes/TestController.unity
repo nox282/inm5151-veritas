@@ -697,7 +697,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Inventory
+  m_Text: Inventaire
 --- !u!222 &769624525
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 1323238279}
   - component: {fileID: 1323238281}
   - component: {fileID: 1323238280}
+  - component: {fileID: 1323238282}
   m_Layer: 5
   m_Name: O1
   m_TagString: Untagged
@@ -1218,6 +1219,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1323238278}
+--- !u!61 &1323238282
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1323238278}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 35, y: 35}
 --- !u!1 &1403896046
 GameObject:
   m_ObjectHideFlags: 0
