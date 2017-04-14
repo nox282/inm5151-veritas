@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     //Flags
     private bool bringUpToolTip;    //true: display tooltip on player
     private bool canPickup;          //true: player can pick up an Item 
-    private Vector2 pickupLocation;
 
     private Rigidbody2D body;
     private Vector2 positionTo;
@@ -28,7 +27,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     void Start () {
         body = GetComponent<Rigidbody2D>();
         positionTo = transform.position;
-        pickupLocation = transform.position;
         tooltipOffset = new Vector3(0.3f, 1f, 0);
 
         body.gravityScale = 0;
@@ -71,7 +69,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         if(collision.gameObject.CompareTag("pickUps")){
             canPickup = true;
             bringUpToolTip = true;
-            pickupLocation = collision.gameObject.GetComponent<PolygonCollider2D>().points[1];
         }
     }
 
@@ -79,7 +76,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         if(collision.gameObject.CompareTag("pickUps")){
             canPickup = false;
             bringUpToolTip = false;
-            pickupLocation = transform.position;
         }
     }
 

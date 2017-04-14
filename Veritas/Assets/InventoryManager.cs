@@ -31,9 +31,16 @@ public class InventoryManager : MonoBehaviour {
     private void UpdateUI(){
         UpdateSlots();
         foreach (KeyValuePair<GameObject, Item> slot in slots){
-            //Debug.Log(slot.Value.itemName);
-            if (slot.Value.itemName != "None"){
-                slot.Key.GetComponent<Image>().color = new Color(170, 0, 0, 255);
+            switch (slot.Value.itemName)
+            {
+                case "Rock":
+                    slot.Key.GetComponent<Image>().color = Color.grey;
+                    slot.Key.GetComponentInChildren<Text>().text = slot.Value.nbItems.ToString();
+                    break;
+                default:
+                    slot.Key.GetComponent<Image>().color = Color.white;
+                    slot.Key.GetComponentInChildren<Text>().text = "";
+                    break;
             }
         }
     }

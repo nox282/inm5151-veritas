@@ -31,14 +31,19 @@ public class PlayerInventory : MonoBehaviour, IInventory<Item> {
 
 	// Adds item to the Inventory
 	public void receive(Item item){
+        int index = inventory.FindIndex(a => a.itemName == item.itemName);
+        if (index >= 0){
+            inventory[index].nbItems += item.nbItems;
+            return;
+        }
         for (int i = 0; i < 12; i++)
         {
             if (inventory[i].itemName == "None"){
-                inventory[i] = item;
+                inventory[i] = new Item(item.itemName, item.nbItems);
                 return;
             }
         }
-        Debug.Log("L'inventaire est plein! Impossible de ramasser l'objet!"); // To FIX
+        Debug.Log("L'inventaire est plein! Impossible de ramasser l'objet!");
 	}
 
 	public void receive(List<Item> items){
