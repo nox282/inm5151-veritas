@@ -18,7 +18,7 @@ When you unzip Tiled2UnityLite, the folder contains 2 components
 This solution simplify the usage of Tiled2Unity. Once setup you will need only a single command to export tmx file. (Awesome!)
 
 # Commands :
-### export tmx to unity
+### export tmx to unity (don't use 'mono' if your on Windows)
     mono [pathToCS-Script]/cscs.exe Tiled2UnityLite.cs [pathToTmxFile]/file.tmx [pathToUnityProject]/Assets/Tiled2Unity/
 ### help
     mono [pathToCS-Script]/cscs.exe Tiles2UnityLite.cs --help
