@@ -37,6 +37,10 @@ public class InventoryManager : MonoBehaviour {
                     slot.Key.GetComponent<Image>().color = Color.grey;
                     slot.Key.GetComponentInChildren<Text>().text = slot.Value.nbItems.ToString();
                     break;
+                case "Starfish":
+                    slot.Key.GetComponent<Image>().color = Color.magenta;
+                    slot.Key.GetComponentInChildren<Text>().text = slot.Value.nbItems.ToString();
+                    break;
                 default:
                     slot.Key.GetComponent<Image>().color = Color.white;
                     slot.Key.GetComponentInChildren<Text>().text = "";
