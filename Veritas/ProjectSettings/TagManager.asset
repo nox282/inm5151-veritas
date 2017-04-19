@@ -6,6 +6,9 @@ TagManager:
   tags:
   - walls
   - pickUps
+  - server
+  - UI
+  - charName
   layers:
   - Default
   - TransparentFX

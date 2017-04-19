@@ -91,37 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &29563547 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1578710122064890, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &29563549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 29563547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &29563551
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 29563547}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1001 &87007226
 Prefab:
   m_ObjectHideFlags: 0
@@ -418,37 +387,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &202861403 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1998792089698616, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &202861405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 202861403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &202861407
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 202861403}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1001 &250819215
 Prefab:
   m_ObjectHideFlags: 0
@@ -573,37 +511,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224970574777345068, guid: ef52556bc4c293e4db03443c1263e337,
     type: 2}
   m_PrefabInternal: {fileID: 250819215}
---- !u!1 &351125036 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1862045135711818, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &351125038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 351125036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &351125040
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 351125036}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1 &377865888
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,86 +553,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &493509260 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1031502277243006, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &493509262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 493509260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &493509264
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 493509260}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.82
---- !u!60 &493509265
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 493509260}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.8}
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.18}
-      - {x: -0.35, y: 0}
-      - {x: 0, y: -0.18}
-      - {x: 0.35, y: 0}
---- !u!1 &499784954 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1716138970441378, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &499784956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 499784954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &499784958
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 499784954}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1 &514196880
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,37 +689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1abad89438c87c94798531becca8a66c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &592166413 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1889153303445098, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &592166415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 592166413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &592166417
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 592166413}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1 &695644358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,37 +1111,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224970574777345068, guid: ef52556bc4c293e4db03443c1263e337,
     type: 2}
   m_PrefabInternal: {fileID: 999633801}
---- !u!1 &1016949648 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1358190335042754, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &1016949650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1016949648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &1016949652
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1016949648}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1001 &1017257829
 Prefab:
   m_ObjectHideFlags: 0
@@ -1532,37 +1297,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1250384194 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1794401857374810, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &1250384196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1250384194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &1250384198
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1250384194}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!224 &1323238279 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224970574777345068, guid: ef52556bc4c293e4db03443c1263e337,
@@ -1754,7 +1488,7 @@ Camera:
   far clip plane: 20
   field of view: 104.2965
   orthographic: 1
-  orthographic size: 3.12
+  orthographic size: 6.24
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1814,7 +1548,7 @@ MonoBehaviour:
   targetCameraHalfHeight: 6.79
   pixelPerfect: 1
   retroSnap: 0
-  assetsPixelsPerUnit: 100
+  assetsPixelsPerUnit: 50
   showHUD: 0
 --- !u!1001 &1447123438
 Prefab:
@@ -2121,80 +1855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa9b7f6fa1233f84eaa13ee4ebc9bcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1568666234 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1076113641554262, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &1568666236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1568666234}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &1568666238
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1568666234}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
---- !u!1 &1618249805 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1009802524921020, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &1618249807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1618249805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!114 &1618249809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1618249805}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: None
---- !u!58 &1618249810
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1618249805}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1001 &1659654430
 Prefab:
   m_ObjectHideFlags: 0
@@ -2319,37 +1979,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224970574777345068, guid: ef52556bc4c293e4db03443c1263e337,
     type: 2}
   m_PrefabInternal: {fileID: 1659654430}
---- !u!1 &1699793469 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1237193573859720, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &1699793471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1699793469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Rock
---- !u!58 &1699793473
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1699793469}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 1.05}
-  serializedVersion: 2
-  m_Radius: 0.7
 --- !u!1001 &1704104584
 Prefab:
   m_ObjectHideFlags: 0
@@ -2464,37 +2093,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224970574777345068, guid: ef52556bc4c293e4db03443c1263e337,
     type: 2}
   m_PrefabInternal: {fileID: 1704104584}
---- !u!1 &1755017301 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1500891350691692, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &1755017303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1755017301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Starfish
---- !u!58 &1755017305
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1755017301}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.3, y: 0.66}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &1841552616
 Prefab:
   m_ObjectHideFlags: 0
@@ -2851,7 +2449,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1987803958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.678772, y: 220.8046, z: 1000}
+  m_LocalPosition: {x: 6.678772, y: 220.8046, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 999507777}
@@ -2892,49 +2490,6 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
---- !u!1 &2107331680 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1220251624351460, guid: cef4c89e9611b4834a9a290bdca0854e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1841552616}
---- !u!114 &2107331682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107331680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Starfish
---- !u!114 &2107331684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107331680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd6044a3f0cd9354d8245e0f242169db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: None
---- !u!58 &2107331685
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107331680}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.3, y: 0.66}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1001 &2127888020
 Prefab:
   m_ObjectHideFlags: 0
