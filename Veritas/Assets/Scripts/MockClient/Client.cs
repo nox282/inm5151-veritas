@@ -23,7 +23,7 @@ namespace Veritas
         private IEnumerator GET_quests(){
             WWW www = new WWW(url_quests);
             yield return www;
-            Debug.Log(www.text);
+            //Debug.Log(www.text);
         }
 
         private IEnumerator POST(Dictionary<string, string> dict){
