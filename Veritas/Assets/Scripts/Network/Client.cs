@@ -7,25 +7,30 @@ using SocketIO;
 namespace Veritas
 {
 
-    public class Client : MonoBehaviour
-    {
-
+    public class Client : MonoBehaviour {
         public string url_state = "http://localhost:5000/update_state";
         public string url_quests = "http://localhost:5000/get_quests";
 
         private SocketIOComponent socket;
         private PlayerController player;
 
+        private ApplicationManager am;
+
         private Vector3 lastPosition;
         
         void Start(){
+            am = GameObject.FindWithTag("applicationManager").GetComponent<ApplicationManager>();
+
             GameObject go = GameObject.Find("SocketIO");
             socket = go.GetComponent<SocketIOComponent>();
             player = transform.parent.GetComponent<PlayerController>();
+            player.Name = am.playerName;
             lastPosition = player.transform.position;
 
-            //SOCKET ENVENT CONFIG #####################
-            socket.On("Dispatch", ReceiveWithSocket);
+            RetrieveQuestsFromServer();
+
+            //SOCKET EVENT CONFIG #####################
+            socket.On("Dispatch", ReceivePosWithSocket);
             //##########################################   
         }
 
@@ -35,13 +40,12 @@ namespace Veritas
             lastPosition = player.transform.position;
         }
 
-        public void SendWithSocket(){
+        private void SendWithSocket(){
             socket.Emit("Move", new JSONObject(player.toDictionnary()));
         }
 
-        public void ReceiveWithSocket(SocketIOEvent e){
-            //Send to ApplicationManager
-            Debug.Log(string.Format("name: {0}, data: {1}]", e.name, e.data));
+        private void ReceivePosWithSocket(SocketIOEvent e){
+            am.setPositions(e);
         }
 
         public void RetrieveQuestsFromServer(){
@@ -52,8 +56,7 @@ namespace Veritas
             WWW www = new WWW(url_quests);
             yield return www;
 
-            FindObjectOfType<ApplicationManager>();
-
+            am.setQuests(www.text);
         }
 
         private IEnumerator POST(Dictionary<string, string> dict){

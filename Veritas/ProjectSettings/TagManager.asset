@@ -9,6 +9,7 @@ TagManager:
   - server
   - UI
   - charName
+  - applicationManager
   layers:
   - Default
   - TransparentFX

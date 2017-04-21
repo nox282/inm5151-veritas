@@ -1,13 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Veritas;
 
 public class InputManager : MonoBehaviour {
 
     public GameObject inventory;
-    public GameObject server;
     public GameObject player;
+    public Button questUpdate;
+    
     Client cl;
     PlayerController pl;
     bool showInventory = false;
@@ -15,8 +17,14 @@ public class InputManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         inventory.SetActive(showInventory);
-        cl = server.GetComponent<Client>();
+        
         pl = player.GetComponent<PlayerController>();
+        cl = player.GetComponentInChildren<Client>();
+
+
+        questUpdate.onClick.AddListener(delegate{
+            UpdateQuests();
+        });
 	}
 
     // Update is called once per frame
@@ -28,9 +36,9 @@ public class InputManager : MonoBehaviour {
             showInventory = !showInventory;
             inventory.SetActive(showInventory);
         }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            cl.RetrieveQuestsFromServer();
-        }
+    }
+
+    void UpdateQuests(){
+        cl.RetrieveQuestsFromServer();
     }
 }
