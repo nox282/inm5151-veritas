@@ -13,6 +13,6 @@ public class ServerScript : MonoBehaviour {
     }
 
     public void Update(){
-        server.SendtoServer(clientObject);
+        //server.SendtoServer(clientObject);
     }
 }

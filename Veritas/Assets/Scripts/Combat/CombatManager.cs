@@ -10,20 +10,20 @@ public class CombatManager : MonoBehaviour {
     public GameObject playerO;
     public GameObject monsterO;
 
-    private CombatPlayerController player;
-    private CombatMonsterController monster;
+    //private CombatPlayerController player;
+    //private CombatMonsterController monster;
 
     public bool outcome = false;
 
 	void Start () {
 		app = FindObjectOfType<ApplicationManager>();
-        player = playerO.GetComponent<CombatPlayerController>();
-        monster = monsterO.GetComponent<CombatMonsterController>();
+      //  player = playerO.GetComponent<CombatPlayerController>();
+      //  monster = monsterO.GetComponent<CombatMonsterController>();
 	}
 
     public void Update(){
-        if(player.HP == 0) loose();
-        if(monster.HP == 0) win();
+        //if(player.HP == 0) loose();
+        //if(monster.HP == 0) win();
     }
 
     void OnGui(){
