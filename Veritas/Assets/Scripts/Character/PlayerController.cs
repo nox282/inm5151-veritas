@@ -7,6 +7,7 @@ using Veritas;
 
 // PlayerController script must be added to the player GameObject
 public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
+
     public Vector3 tooltipOffset;
     public Vector2 tooltipSize;
     public float speed = 1.5f;
@@ -55,7 +56,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
     void UpdatePosition(){
         transform.position = Vector2.MoveTowards(body.position, positionTo, speed * Time.deltaTime);
-        //TODO : Change this OR change boxcollider2d to polygon which will be a circle
         transform.rotation = Quaternion.Euler(new Vector2(0, 0));
     }
 
@@ -101,12 +101,12 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
 //ICharacter Implementation
 
-    private String playerName;
+    private string playerName;
     public PlayerInventory bag;
     public PlayerInventory equipement;
     public PlayerInventory questLog;
 
-    public String Name {
+    public string Name {
         get{return playerName;}
         set{playerName = value;}
     }
@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 // ISendServer Interface
     public Dictionary<string, string> toDictionnary(){
         Dictionary<string, string> dict = new Dictionary<string, string>();
+        dict.Add("PlayerName", this.playerName);
         dict.Add("PosX", (transform.position.x).ToString());
         dict.Add("PosY", (transform.position.y).ToString());
         return dict;
