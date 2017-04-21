@@ -16,7 +16,9 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     //Flags
     private bool bringUpToolTip;     //true: display tooltip on player
     private bool canPickup;          //true: player can pick up an Item 
-    private Vector2 pickupLocation;
+    private bool canMove;
+
+    public bool CanMove { get { return canMove; } set { canMove = value; } }
 
     private Rigidbody2D body;
     private Vector2 positionTo;
@@ -28,20 +30,21 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     void Start () {
         body = GetComponent<Rigidbody2D>();
         positionTo = transform.position;
-        pickupLocation = transform.position;
         tooltipOffset = new Vector3(0.3f, 1f, 0);
-
+        canMove = true;
         body.gravityScale = 0;
         Spawn();
 	}
 	
     // Listen for clicks to move the player around
 	void Update () {
-        if (Input.GetMouseButton(0)) {
-            UpdateDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        }
-        if(Input.GetKeyDown(KeyCode.Space)){
-            pickup();
+        if (canMove){
+            if (Input.GetMouseButton(0)){
+                UpdateDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            }
+            if (Input.GetKeyDown(KeyCode.Space)){
+                pickup();
+            }
         }
         UpdatePosition();
     }
@@ -62,24 +65,30 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     }
 
     private void OnCollisionStay2D(Collision2D collision){
-        if (collision.gameObject.CompareTag("walls")){
+        if (collision.gameObject.CompareTag("walls") || collision.gameObject.CompareTag("pickUps"))
+        {
             positionTo = transform.position;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision){
-        if(collision.gameObject.CompareTag("pickUps")){
+    private void OnTriggerStay2D(Collider2D collision){
+        if (collision.gameObject.CompareTag("pickUps")){
             canPickup = true;
             bringUpToolTip = true;
-            pickupLocation = collision.gameObject.GetComponent<PolygonCollider2D>().points[1];
         }
     }
+
+    //void OnTriggerEnter2D(Collider2D collision){
+    //    if(collision.gameObject.CompareTag("pickUps")){
+    //        canPickup = true;
+    //        bringUpToolTip = true;
+    //    }
+    //}
 
     void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("pickUps")){
             canPickup = false;
             bringUpToolTip = false;
-            pickupLocation = transform.position;
         }
     }
 
