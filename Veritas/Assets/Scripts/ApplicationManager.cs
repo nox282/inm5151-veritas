@@ -5,6 +5,7 @@ using Veritas;
 
 public class ApplicationManager : MonoBehaviour {
 
+    public List<Vector2> otherPlayers;
     public List<string> monsterList;
     public string currentMonster;
 

@@ -16,24 +16,32 @@ namespace Veritas
         private SocketIOComponent socket;
         private PlayerController player;
 
-        private Dictionary<string, string> toSend;
-
-
+        private Vector3 lastPosition;
+        
         void Start(){
             GameObject go = GameObject.Find("SocketIO");
             socket = go.GetComponent<SocketIOComponent>();
             player = transform.parent.GetComponent<PlayerController>();
-            toSend = new Dictionary<string, string>();
+            lastPosition = player.transform.position;
+
+            //SOCKET ENVENT CONFIG #####################
+            socket.On("Dispatch", ReceiveWithSocket);
+            //##########################################   
         }
 
         void Update(){
-            toSend["x"] = string.Format("{0:N2}", player.transform.position.x);
-            toSend["y"] = string.Format("{0:N2}", player.transform.position.y);
-            socket.Emit("Move", new JSONObject(toSend));
+            if(player.transform.position != lastPosition)
+                SendWithSocket();
+            lastPosition = player.transform.position;
         }
 
-        public void SendtoServer(ISendServer clientObject){
-            StartCoroutine(POST(clientObject.toDictionnary()));
+        public void SendWithSocket(){
+            socket.Emit("Move", new JSONObject(player.toDictionnary()));
+        }
+
+        public void ReceiveWithSocket(SocketIOEvent e){
+            //Send to ApplicationManager
+            Debug.Log(string.Format("name: {0}, data: {1}]", e.name, e.data));
         }
 
         public void RetrieveQuestsFromServer(){

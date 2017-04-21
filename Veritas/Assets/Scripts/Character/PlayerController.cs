@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
 
     //Flags
-    private bool bringUpToolTip;    //true: display tooltip on player
+    private bool bringUpToolTip;     //true: display tooltip on player
     private bool canPickup;          //true: player can pick up an Item 
     private Vector2 pickupLocation;
 
