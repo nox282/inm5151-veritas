@@ -29,6 +29,8 @@ public class MenuFade : MonoBehaviour {
     void fade(bool fadeIn, bool fadeOut){
         if(fadeOut) alpha = Mathf.Clamp01(alpha + Time.deltaTime / speed);
         if(fadeIn) alpha = Mathf.Clamp01(alpha - Time.deltaTime / speed);
+        if (alpha == 0) this.fadeIn = false;
+        if (alpha == 1) this.fadeOut = false;
         tmp.a = alpha;
     }
 }
