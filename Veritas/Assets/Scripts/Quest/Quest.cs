@@ -1,42 +1,67 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using SocketIO;
 
 namespace Veritas {
 	public interface IGoal {
-		String Title{get;set;}
-		String Description{get;set;}
-		bool Completed{get;set;}
-
-		void complete();
+		string Type{get;set;}
+        string Level{get;set;}
+        string Question{get;set;}
+        string Answer{get;set;}
+        bool Completed{get;set;}
 	}
 
 	public class Quest {
-		private String title;
-		private String description;
-		private List<IGoal> objectives;
+		private string title;
+		private string subject;
+		private string level;
+		private List<Goal> objectives;
 
-		public String Title{
+		public string Title{
 			get{ return title; }
 			set{ title = value; }
 		}
 
-		public String Description{
-			get{ return description; }
-			set{ description = value; }
+		public string Subject{
+			get{ return subject; }
+			set{ subject = value; }
 		}
 
-		public List<IGoal> Objectives{get{return objectives;}}
+		public string Level{
+			get{ return level; }
+			set{ level = value; }
+		}
 
-		public Quest(String _t, String _d, List<IGoal> _o){
+		public List<Goal> Objectives{ get { return objectives; } }
+
+		public void setObjectives(JSONObject data) {
+			foreach(JSONObject j in data.list){
+				Goal g = new Goal();
+				for(int i = 0; i < j.list.Count; i++){
+					string key = (string) j.keys[i];
+					g.setGoalAttributes(key, j.list[i]);
+				}
+				objectives.Add(g);
+			}
+		}
+
+		public Quest(){
+			title = "";
+			subject = "";
+			level = "";
+			objectives = new List<Goal>();
+		}
+
+		public Quest(string _t, string _s, string _l, List<Goal> _o){
 			title = _t;
-			description = _d;
+			subject = _s;
+			level = _l;
 			objectives = _o;
 		}
 
 		public bool isCompleted(){
-			foreach(IGoal g in objectives){
+			foreach(Goal g in objectives){
 				if(!g.Completed)
 					return false;
 			}
