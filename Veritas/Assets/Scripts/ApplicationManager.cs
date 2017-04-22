@@ -32,6 +32,7 @@ public class ApplicationManager : MonoBehaviour {
     public void setQuests(string data){
         JSONObject d = new JSONObject(data); 
         
+<<<<<<< HEAD
         foreach(JSONObject j in d.list){
             Quest q = new Quest(); 
             for(int i = 0; i < j.list.Count; i++){
@@ -56,5 +57,7 @@ public class ApplicationManager : MonoBehaviour {
             //q.setObjectives(data);
         }
         return q;
+=======
+>>>>>>> 9637ba298ad15fcd711f2d50b0760da6a02613df
     }
 }
