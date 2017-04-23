@@ -844,7 +844,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
+<<<<<<< HEAD:Veritas/Assets/Scenes/MainMenu2.unity
   monsterList: []
+=======
+>>>>>>> develop:Veritas/Assets/Scenes/MainMenu.unity
   currentMonster: 
 --- !u!4 &1405351205
 Transform:

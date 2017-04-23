@@ -34,7 +34,7 @@ Sample data (in JSON format):
 = Features =
 
 *Decode JSON-formatted strings into a usable data structure
-*Encode structured data into a JSON-formatted string
+*Encode structured data into a JSON-formatted st
 *Interoperable with Dictionary and WWWForm
 *Optimized parse/stringify functions -- minimal (unavoidable) garbage creation
 *Asynchronous stringify function for serializing lots of data without frame drops
