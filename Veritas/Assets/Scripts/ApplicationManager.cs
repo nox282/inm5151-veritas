@@ -41,7 +41,10 @@ public class ApplicationManager : MonoBehaviour {
             quests.Add(q);
         }
 
-        Debug.Log(quests.ToString());
+        foreach(Quest q in quests){
+            Debug.Log(q.Title);
+            Debug.Log(q.Objectives[0].Question);
+        }
     }
 
     private Quest setQuestsAttributes(Quest q, string key, JSONObject data){
@@ -52,8 +55,7 @@ public class ApplicationManager : MonoBehaviour {
         } else if(key == "level"){
             q.Level = data.str;
         } else if(key == "questions"){
-            Debug.Log(data.type);
-            //q.setObjectives(data);
+            q.setObjectives(data);
         }
         return q;
     }

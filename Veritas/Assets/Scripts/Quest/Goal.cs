@@ -8,7 +8,7 @@ namespace Veritas {
         private string level;
         private string question;
         private string answer;
-        private bool completed;
+        private bool completed = false;
 
         public string Type{
             get{ return type; }

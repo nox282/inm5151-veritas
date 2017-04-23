@@ -31,7 +31,7 @@ namespace Veritas
 
             //SOCKET EVENT CONFIG #####################
             socket.On("Dispatch", ReceivePosWithSocket);
-            //##########################################   
+            //##########################################
         }
 
         void Update(){
