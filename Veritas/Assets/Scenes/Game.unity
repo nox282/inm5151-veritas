@@ -209,6 +209,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5bdf1464f6271e4bbce7366e5e36435, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &57731915 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1247451731777314, guid: e5bdf1464f6271e4bbce7366e5e36435,
+    type: 2}
+  m_PrefabInternal: {fileID: 57731914}
+--- !u!114 &57731916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 57731915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8ab806e2c9d2148bc1eb7d48d950d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &143785758
 Prefab:
   m_ObjectHideFlags: 0
@@ -1485,7 +1501,7 @@ Camera:
   far clip plane: 20
   field of view: 104.2965
   orthographic: 1
-  orthographic size: 6.73
+  orthographic size: 6.7799997
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
