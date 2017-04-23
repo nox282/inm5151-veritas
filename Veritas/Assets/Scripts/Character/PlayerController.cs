@@ -84,13 +84,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         }
     }
 
-    //void OnTriggerEnter2D(Collider2D collision){
-    //    if(collision.gameObject.CompareTag("pickUps")){
-    //        canPickup = true;
-    //        bringUpToolTip = true;
-    //    }
-    //}
-
     void OnTriggerExit2D(Collider2D collision){
         if(collision.gameObject.CompareTag("pickUps")){
             canPickup = false;
