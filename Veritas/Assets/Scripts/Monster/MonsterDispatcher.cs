@@ -22,14 +22,38 @@ public class MonsterDispatcher : MonoBehaviour {
                 foreach(SpawningArea sp in spAreas){
                     int d = Random.Range(minDensity, maxDensity);
                     for(int i = 0; i < d; i++){
-                        SpawnMonster(g, sp);
+                        SpawnMonster(q, g, sp);
                     }
                 }
             }
         }
     }
 
-    private void SpawnMonster(Goal g, SpawningArea sp){
-        Debug.Log("new monsters");
+    private void SpawnMonster(Quest q, Goal g, SpawningArea sp){
+        GameObject prefab = subjectToMonster(q.Subject);
+        float angle = Random.Range(0, 360);
+        float radius = Random.Range(0, sp.radius);
+        Vector2 position = angleToPosition(sp.position, angle, radius);
+
+        GameObject monster = Instantiate(prefab, position, Quaternion.identity, sp.transform);
+        monster.GetComponent<MonsterController>().goal = g;
+        monsters.Add(monster);
+    }
+
+    private GameObject subjectToMonster(string subject){
+        if(         subject == "math"){
+            return monstersPF[0];
+        } else if(  subject == "francais"){
+            return monstersPF[1];
+        } else if(  subject == "anglais")
+            return monstersPF[2];
+        return monstersPF[0];
+    }
+
+    private Vector2 angleToPosition(Vector2 pos, float angle, float radius){
+        return new Vector2(
+            pos.x + radius * Mathf.Sin(Mathf.Deg2Rad * angle),
+            pos.y + radius * Mathf.Cos(Mathf.Deg2Rad * angle)
+        );
     }
 }

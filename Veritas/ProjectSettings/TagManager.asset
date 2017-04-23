@@ -11,6 +11,7 @@ TagManager:
   - charName
   - applicationManager
   - monster
+  - monsterDispatcher
   layers:
   - Default
   - TransparentFX

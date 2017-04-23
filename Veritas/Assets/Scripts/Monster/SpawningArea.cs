@@ -9,6 +9,8 @@ public class SpawningArea : MonoBehaviour {
 
 	void Start () {
 		position = transform.localPosition;
-        radius = transform.localScale.x;
+        radius = transform.lossyScale.x;
+
+        transform.localScale = new Vector3(1, 1, 1);
 	}
 }

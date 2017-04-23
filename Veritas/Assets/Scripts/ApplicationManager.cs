@@ -11,7 +11,7 @@ public class ApplicationManager : MonoBehaviour {
 
     public Dictionary<string, Vector3> players;
     public List<Quest> quests = new List<Quest>();
-    
+
     public string currentMonster;
 
     private Client client;
@@ -30,21 +30,18 @@ public class ApplicationManager : MonoBehaviour {
     }
 
     public void setQuests(string data){
-        JSONObject d = new JSONObject(data); 
+        JSONObject j = new JSONObject(data); 
 
-        foreach(JSONObject j in d.list){
+        foreach(JSONObject d in j.list){
             Quest q = new Quest(); 
-            for(int i = 0; i < j.list.Count; i++){
-                string key = (string) j.keys[i];
-                q = setQuestsAttributes(q, key, j.list[i]);
+            for(int i = 0; i < d.list.Count; i++){
+                string key = (string) d.keys[i];
+                q = setQuestsAttributes(q, key, d.list[i]);
             }
             quests.Add(q);
         }
-
-        foreach(Quest q in quests){
-            Debug.Log(q.Title);
-            Debug.Log(q.Objectives[0].Question);
-        }
+        MonsterDispatcher md = GameObject.FindWithTag("monsterDispatcher").GetComponent<MonsterDispatcher>();
+        md.DispatchMonsters(quests);
     }
 
     private Quest setQuestsAttributes(Quest q, string key, JSONObject data){

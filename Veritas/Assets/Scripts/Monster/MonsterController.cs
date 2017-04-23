@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Veritas;
 
 public class MonsterController : MonoBehaviour {
     public float speed;
     public Vector2 MovementRange;
     public int movementFrequency;
-
+    public Goal goal;
+    
     private int frameCount;
     private Vector2 positionTo;
     private Rigidbody2D body;
@@ -41,4 +43,5 @@ public class MonsterController : MonoBehaviour {
         transform.position = Vector2.MoveTowards(transform.position, positionTo, speed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(new Vector2(0, 0));
     }
+
 }

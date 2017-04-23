@@ -1650,7 +1650,7 @@ GameObject:
   - component: {fileID: 1124568390}
   m_Layer: 0
   m_Name: Monsters
-  m_TagString: Untagged
+  m_TagString: monsterDispatcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1668,10 +1668,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spAreas: []
-  minDensity: 0
-  maxDensity: 0
+  minDensity: 1
+  maxDensity: 3
   monsters: []
-  monstersPF: []
+  monstersPF:
+  - {fileID: 1912588180581650, guid: 98ae32fb44e524829a59afdd81dca8f9, type: 2}
+  - {fileID: 1357919406517106, guid: af69c8282847147b1952cf50a311c53b, type: 2}
+  - {fileID: 1385372641655698, guid: 153b1ae3f0692416abb50b22435a5784, type: 2}
 --- !u!4 &1124568391
 Transform:
   m_ObjectHideFlags: 0
