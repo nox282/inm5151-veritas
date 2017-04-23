@@ -9,9 +9,11 @@ public class CameraController : MonoBehaviour {
     Vector3 from;
     Vector3 to;
     Vector3 velocity = Vector3.zero;
+    MenuFade fade;
 
 	void Start () {
-        
+        fade = GetComponent<MenuFade>();
+        fade.fadeIn = true;
 	}
 	
 	void Update () {
