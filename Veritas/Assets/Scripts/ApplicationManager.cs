@@ -10,8 +10,8 @@ public class ApplicationManager : MonoBehaviour {
     public string playerName;
 
     public Dictionary<string, Vector3> players;
-    public List<string> monsterList;
     public List<Quest> quests = new List<Quest>();
+    
     public string currentMonster;
 
     private Client client;
