@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour {
-    PlayerInventory inventory;
-    Dictionary<GameObject, Item> slots;
+    public PlayerInventory inventory;
+    public Dictionary<GameObject, Item> slots;
 
 	// Use this for initialization
 	void Start () {
@@ -31,21 +31,15 @@ public class InventoryManager : MonoBehaviour {
     private void UpdateUI(){
         UpdateSlots();
         foreach (KeyValuePair<GameObject, Item> slot in slots){
-            switch (slot.Value.itemName)
-            {
-                case "Rock":
-                    slot.Key.GetComponent<Image>().color = Color.grey;
-                    slot.Key.GetComponentInChildren<Text>().text = slot.Value.nbItems.ToString();
-                    break;
-                case "Starfish":
-                    slot.Key.GetComponent<Image>().color = Color.magenta;
-                    slot.Key.GetComponentInChildren<Text>().text = slot.Value.nbItems.ToString();
-                    break;
-                default:
-                    slot.Key.GetComponent<Image>().color = Color.white;
-                    slot.Key.GetComponentInChildren<Text>().text = "";
-                    break;
+            Color tmp;
+
+            if(slot.Value.itemName == "None"){
+                tmp = Color.white;
+            }else{
+                tmp = slot.Value.color;
             }
+            slot.Key.GetComponent<Image>().color = tmp;
+            slot.Key.GetComponentInChildren<Text>().text = slot.Value.nbItems == 0 ? "" : slot.Value.nbItems.ToString();
         }
     }
 
