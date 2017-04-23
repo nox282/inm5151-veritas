@@ -10,6 +10,7 @@ TagManager:
   - UI
   - charName
   - applicationManager
+  - monster
   layers:
   - Default
   - TransparentFX

@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.CompareTag("monster")){
+            Debug.Log("COMBAT");
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision){
         if (collision.gameObject.CompareTag("walls") || collision.gameObject.CompareTag("pickUps"))
         {

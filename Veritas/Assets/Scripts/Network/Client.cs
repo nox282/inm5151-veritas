@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using SocketIO;
+//using SocketIO;
 
 namespace Veritas
 {
@@ -11,7 +11,7 @@ namespace Veritas
         public string url_state = "http://localhost:5000/update_state";
         public string url_quests = "http://localhost:5000/get_quests";
 
-        private SocketIOComponent socket;
+        //private SocketIOComponent socket;
         private PlayerController player;
 
         private ApplicationManager am;
@@ -21,8 +21,8 @@ namespace Veritas
         void Start(){
             am = GameObject.FindWithTag("applicationManager").GetComponent<ApplicationManager>();
 
-            GameObject go = GameObject.Find("SocketIO");
-            socket = go.GetComponent<SocketIOComponent>();
+            //GameObject go = GameObject.Find("SocketIO");
+            //socket = go.GetComponent<SocketIOComponent>();
             player = transform.parent.GetComponent<PlayerController>();
             player.Name = am.playerName;
             lastPosition = player.transform.position;
@@ -30,23 +30,24 @@ namespace Veritas
             RetrieveQuestsFromServer();
 
             //SOCKET EVENT CONFIG #####################
-            socket.On("Dispatch", ReceivePosWithSocket);
+            //socket.On("Dispatch", ReceivePosWithSocket);
             //##########################################
         }
 
         void Update(){
-            if(player.transform.position != lastPosition)
-                SendWithSocket();
-            lastPosition = player.transform.position;
+            // Sockets are not a supported by the unity webgl player
+            //if(player.transform.position != lastPosition)
+            //    SendWithSocket();
+            //lastPosition = player.transform.position;
         }
 
-        private void SendWithSocket(){
+        /*private void SendWithSocket(){
             socket.Emit("Move", new JSONObject(player.toDictionnary()));
         }
 
         private void ReceivePosWithSocket(SocketIOEvent e){
             am.setPositions(e);
-        }
+        }*/
 
         public void RetrieveQuestsFromServer(){
             StartCoroutine(GET_quests());
