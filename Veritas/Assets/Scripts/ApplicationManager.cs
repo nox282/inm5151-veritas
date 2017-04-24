@@ -8,6 +8,7 @@ using SocketIO;
 
 public class ApplicationManager : MonoBehaviour {
     public string playerName;
+    public char sexe;
 
     public Dictionary<string, Vector3> players;
     public List<Quest> quests = new List<Quest>();
@@ -53,7 +54,7 @@ public class ApplicationManager : MonoBehaviour {
 
     public void setQuests(string data){
         quests = new List<Quest>();
-        
+
         JSONObject j = new JSONObject(data); 
 
         foreach(JSONObject d in j.list){
