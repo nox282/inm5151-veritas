@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using Veritas;
 
@@ -66,7 +67,9 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("monster")){
-            Debug.Log("COMBAT");
+            ApplicationManager am = GameObject.FindWithTag("applicationManager").GetComponent<ApplicationManager>();
+            am.currentMonster = collision.gameObject.GetComponent<MonsterController>();
+            SceneManager.LoadScene("Combat", LoadSceneMode.Single);
         }
     }
 

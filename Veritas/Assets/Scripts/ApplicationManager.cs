@@ -12,13 +12,35 @@ public class ApplicationManager : MonoBehaviour {
     public Dictionary<string, Vector3> players;
     public List<Quest> quests = new List<Quest>();
 
+    public bool wasInCombat;
+    public bool win;
+
     public MonsterController currentMonster;
 
     private Client client;
 
 	void Start () {
         players = new Dictionary<string, Vector3>();
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);        
+    }
+
+    void Update(){
+        if(wasInCombat){
+            resetState();
+        }
+    }
+
+    private void resetState(){
+        if(win){
+                Debug.Log("win");
+        } else {
+                Debug.Log("loose");
+        }
+
+        wasInCombat = false;
+        win = false;
+        
+        currentMonster = null;
     }
 
     public void setPositions(SocketIOEvent e){
@@ -30,6 +52,8 @@ public class ApplicationManager : MonoBehaviour {
     }
 
     public void setQuests(string data){
+        quests = new List<Quest>();
+        
         JSONObject j = new JSONObject(data); 
 
         foreach(JSONObject d in j.list){
@@ -43,6 +67,10 @@ public class ApplicationManager : MonoBehaviour {
         MonsterDispatcher md = GameObject.FindWithTag("monsterDispatcher").GetComponent<MonsterDispatcher>();
         md.DispatchMonsters(quests);
     }
+
+    //public void finishCombat(bool win){
+    //    if
+    //}
 
     private Quest setQuestsAttributes(Quest q, string key, JSONObject data){
         if(       key == "titre"){

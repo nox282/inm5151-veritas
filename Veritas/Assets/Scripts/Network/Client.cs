@@ -26,8 +26,9 @@ namespace Veritas
             player = transform.parent.GetComponent<PlayerController>();
             player.Name = am.playerName;
             lastPosition = player.transform.position;
-
-            RetrieveQuestsFromServer();
+            
+            if(!am.wasInCombat)
+                RetrieveQuestsFromServer();
 
             //SOCKET EVENT CONFIG #####################
             //socket.On("Dispatch", ReceivePosWithSocket);

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using Veritas;
 
 public class CombatManager : MonoBehaviour {
@@ -22,10 +24,11 @@ public class CombatManager : MonoBehaviour {
         monster = monsterO.GetComponent<CombatMonsterController>();
         g = app.currentMonster.goal;
 
+        Debug.Log(g.Question);
 	}
 
     public void TryAnswer(string a){
-        bool t = g.tryAnswer(a);
+        bool t = (a != "") && g.tryAnswer(a);
         if(t){
             win();
         } else {
@@ -39,22 +42,19 @@ public class CombatManager : MonoBehaviour {
         return g.Question;
     }
 
-    public void Update(){
-        //if(player.HP == 0) loose();
-        //if(monster.HP == 0) win();
-    }
-
-    void OnGui(){
-        //gui here;
-    }
-
     public void win(){
         outcome = true;
-        //load with parameters
+        returnToGame();
     }
 
     public void loose(){
         outcome = false;
-        //load with parameters
+        returnToGame();
+    }
+
+    private void returnToGame(){
+        app.wasInCombat = true;
+        app.win = outcome;
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 }
