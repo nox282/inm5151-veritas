@@ -42,6 +42,7 @@ namespace Veritas {
 					string key = (string) j.keys[i];
 					g.setGoalAttributes(key, j.list[i]);
 				}
+				g.Subject = subject;
 				objectives.Add(g);
 			}
 		}

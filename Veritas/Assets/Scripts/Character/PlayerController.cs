@@ -9,6 +9,9 @@ using Veritas;
 // PlayerController script must be added to the player GameObject
 public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
+    public AnimatorOverrideController maleAnim;
+    public AnimatorOverrideController femaleAnim;
+
     public Vector3 tooltipOffset;
     public Vector2 tooltipSize;
     public float speed = 1.5f;
@@ -49,6 +52,9 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         body.gravityScale = 0;
         anim = transform.GetComponent<Animator>();
         Spawn();
+
+        if(am.sexe == 'm')  anim.runtimeAnimatorController = maleAnim;
+        else                anim.runtimeAnimatorController = femaleAnim;
 
         transform.position = am.playerPosition;
         positionTo = transform.position;

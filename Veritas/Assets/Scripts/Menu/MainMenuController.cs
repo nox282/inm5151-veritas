@@ -8,7 +8,9 @@ public class MainMenuController : MonoBehaviour {
     public GameObject amgo;
     public Text playerName;
     public Button start;
-    public Button quit;
+    public Toggle male;
+    public Toggle female;
+
     MenuFade fade;
 
 	void Start () {
@@ -16,11 +18,9 @@ public class MainMenuController : MonoBehaviour {
 		start.onClick.AddListener(delegate{
             loadStart();
         });
-        
-        quit.onClick.AddListener(delegate{
-            loadQuit();
-        });
 	}
+
+
 
     IEnumerator fadeStart(){
         fade.fadeOut = true;
@@ -29,14 +29,12 @@ public class MainMenuController : MonoBehaviour {
         }
         ApplicationManager am = amgo.GetComponent<ApplicationManager>();
         am.playerName = playerName.text;
+        if(male.isOn)   am.sexe = 'm';
+        else            am.sexe = 'f';
         SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 
     void loadStart(){
         StartCoroutine(fadeStart());
-    }
-
-    void loadQuit(){
-        Application.Quit();
     }
 }

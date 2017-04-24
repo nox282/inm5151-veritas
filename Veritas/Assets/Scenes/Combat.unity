@@ -449,6 +449,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 3
+  maleAnim: {fileID: 22100000, guid: de4412185bb524b26a16786aeec0edc6, type: 2}
+  femaleAnim: {fileID: 22100000, guid: dc298b3d93c3a437aa65279298fa0a74, type: 2}
 --- !u!95 &546599554
 Animator:
   serializedVersion: 3
@@ -509,9 +511,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 599982001}
-  - component: {fileID: 599982002}
   - component: {fileID: 599982004}
   - component: {fileID: 599982003}
+  - component: {fileID: 599982002}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -543,8 +545,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29460fde7c7ee4a4e8baa825d10a3cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: []
-  anims: []
+  blueAnim: {fileID: 22100000, guid: 8320bc13a0a31461dbf154b312b505d0, type: 2}
+  greenAnim: {fileID: 22100000, guid: 38e9cf48f48474f7890b44216709d7ea, type: 2}
+  pinkAnim: {fileID: 22100000, guid: a83a4576ed6a044cdbeb87c0caac0a57, type: 2}
 --- !u!95 &599982003
 Animator:
   serializedVersion: 3

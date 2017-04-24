@@ -612,6 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56747ea0bea214f46b3f2b4fed0e5e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maleAnim: {fileID: 22100000, guid: fe1203ea59d154c1e98222d5dd13a8f2, type: 2}
+  femaleAnim: {fileID: 22100000, guid: f6aaf591dcf4e4030a30a86edf315b67, type: 2}
   tooltipOffset: {x: 20, y: -70, z: 0}
   tooltipSize: {x: 250, y: 25}
   speed: 2
@@ -1528,7 +1530,7 @@ Camera:
   far clip plane: 20
   field of view: 104.2965
   orthographic: 1
-  orthographic size: 8.599999
+  orthographic size: 7.799999
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

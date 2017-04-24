@@ -10,6 +10,8 @@ namespace Veritas {
         private string answer;
         private bool completed = false;
 
+        public string Subject;
+
         public string Type{
             get{ return type; }
             set{ type = value; }
