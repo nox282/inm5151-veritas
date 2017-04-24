@@ -21,6 +21,11 @@ public class PlayerInventory : MonoBehaviour, IInventory<Item> {
 	public List<Item> Inventory{ get { return inventory; } set{inventory = value;}}
 
 	// Returns true if Inventory have this item
+    public bool isThere(String name){
+        Debug.Log(inventory.Find(x => x.itemName == name));
+        return inventory.Find(x => x.itemName == name) != null;
+    }
+
 	public bool isThere(Item item){
 		return inventory.Contains(item);
 	}
