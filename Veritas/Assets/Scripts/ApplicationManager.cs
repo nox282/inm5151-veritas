@@ -12,7 +12,7 @@ public class ApplicationManager : MonoBehaviour {
     public Dictionary<string, Vector3> players;
     public List<Quest> quests = new List<Quest>();
 
-    public string currentMonster;
+    public MonsterController currentMonster;
 
     private Client client;
 
