@@ -228,10 +228,10 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
     // Assign Quest to Character's QuestLog
     public void pickUp(Quest q) {return;}  //TODO: Implement
-    public void drop(Item i) {bag.drop(i);}    //TODO: Implement
+    public void drop(Item i) {bag.drop(i);}//TODO: Implement
     public void drop(Quest q) {return;}    //TODO: Implement
     public void equip(Item i) {return;}    //TODO: Implement
-    public void unequip(Item i) {return;} //TODO: Implement
+    public void unequip(Item i) {return;}  //TODO: Implement
 
 // ISendServer Interface
     public Dictionary<string, string> toDictionnary(){
