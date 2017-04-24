@@ -844,8 +844,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerName: 
-  monsterList: []
-  currentMonster: 
+  playerPosition: {x: 0, y: 0}
+  sexe: 0
+  wasInCombat: 0
+  win: 0
+  currentMonster: {fileID: 0}
 --- !u!4 &1405351205
 Transform:
   m_ObjectHideFlags: 0

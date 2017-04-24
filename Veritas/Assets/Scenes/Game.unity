@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -543,6 +543,7 @@ GameObject:
   - component: {fileID: 514196884}
   - component: {fileID: 514196885}
   - component: {fileID: 514196883}
+  - component: {fileID: 514196886}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -592,7 +593,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 514196880}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 188.05, y: -69.77, z: -1}
+  m_LocalPosition: {x: 195, y: -75, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 695644359}
@@ -615,6 +616,15 @@ MonoBehaviour:
   tooltipSize: {x: 250, y: 25}
   speed: 2
   heightOffset: 0.7
+  north: 0
+  south: 0
+  east: 0
+  west: 0
+  p_north: 0
+  p_south: 0
+  p_east: 0
+  p_west: 0
+  isMoving: 0
   bag: {fileID: 0}
   equipement: {fileID: 0}
   questLog: {fileID: 0}
@@ -656,6 +666,23 @@ PolygonCollider2D:
       - {x: -0.35, y: 0}
       - {x: 0, y: -0.18}
       - {x: 0.35, y: 0}
+--- !u!95 &514196886
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514196880}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60dabb1087c7043cc9c9ec64c512632a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &540648229
 Prefab:
   m_ObjectHideFlags: 0
@@ -1501,7 +1528,7 @@ Camera:
   far clip plane: 20
   field of view: 104.2965
   orthographic: 1
-  orthographic size: 6.7799997
+  orthographic size: 8.599999
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

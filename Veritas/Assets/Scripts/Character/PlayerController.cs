@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     public float speed = 1.5f;
     public float heightOffset;
 
-
     //Flags
     private bool bringUpToolTip;     //true: display tooltip on player
     private bool canPickup;          //true: player can pick up an Item 
@@ -24,18 +23,35 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
     private Rigidbody2D body;
     private Vector2 positionTo;
+    private Animator anim;
+ 
+    public bool north;
+    public bool south;
+    public bool east;
+    public bool west;
+
+    public bool p_north;
+    public bool p_south;
+    public bool p_east;
+    public bool p_west;
+
+    public bool isMoving;
 
     private void Awake(){
         bag = GetComponentInChildren<PlayerInventory>();
     }
 
     void Start () {
+        ApplicationManager am = GameObject.FindWithTag("applicationManager").GetComponent<ApplicationManager>();
         body = GetComponent<Rigidbody2D>();
-        positionTo = transform.position;
         tooltipOffset = new Vector3(0.3f, 1f, 0);
         canMove = true;
         body.gravityScale = 0;
+        anim = transform.GetComponent<Animator>();
         Spawn();
+
+        transform.position = am.playerPosition;
+        positionTo = transform.position;
 	}
 	
     // Listen for clicks to move the player around
@@ -49,6 +65,16 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
             }
         }
         UpdatePosition();
+
+        UpdateHeading();
+        anim.SetBool("isMoving", isMoving);
+        anim.SetBool("north", north);
+        anim.SetBool("south", south);
+        anim.SetBool("east", east);
+        anim.SetBool("west", west);
+
+        if(DirectionIsDifferent())
+            anim.SetTrigger("changeDirection");
     }
 
     void UpdateDestination(Vector2 clicked){
@@ -56,6 +82,8 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
     }
 
     void UpdatePosition(){
+        isMoving = !(((Vector2) transform.position) == positionTo);
+
         transform.position = Vector2.MoveTowards(body.position, positionTo, speed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(new Vector2(0, 0));
     }
@@ -65,10 +93,59 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
 
     }
 
+    private void UpdateHeading(){
+        float angle = heading();
+        saveDirectionState();
+        resetDirections();
+
+        if(angle > 0.0f && angle < 90.0f){
+            north = true;
+        } else if(angle >= 90.0f && angle <= 180.0f){
+            east = true;
+        } else if(angle >= 0.0f || angle > -90.0f){
+            west = true;
+        } else{
+            south = true;
+        }
+    }
+
+    private void resetDirections(){
+        north = false;
+        south = false;
+        east = false;
+        west = false;
+    }
+
+    private void saveDirectionState(){
+        p_north = north; 
+        p_south = south;
+        p_east = east;
+        p_west = west;
+    }
+
+    private bool DirectionIsDifferent(){
+        return  !(north == p_north &&
+                  south == p_south &&
+                  east  == p_east  &&
+                  west  == p_west);
+    }
+
+    private float heading(){
+        Vector2 reference = new Vector2(0, 1);
+        Vector2 direction = new Vector2(
+            positionTo.x - transform.position.x,
+            positionTo.y - transform.position.y
+        );
+
+        float sign = (direction.x < reference.x)? -1.0f: 1.0f;
+        return Vector2.Angle(reference, direction) * sign;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.CompareTag("monster")){
             ApplicationManager am = GameObject.FindWithTag("applicationManager").GetComponent<ApplicationManager>();
             am.currentMonster = collision.gameObject.GetComponent<MonsterController>();
+            am.playerPosition = transform.position;
             SceneManager.LoadScene("Combat", LoadSceneMode.Single);
         }
     }

@@ -8,6 +8,7 @@ using SocketIO;
 
 public class ApplicationManager : MonoBehaviour {
     public string playerName;
+    public Vector2 playerPosition;
     public char sexe;
 
     public Dictionary<string, Vector3> players;
@@ -21,6 +22,7 @@ public class ApplicationManager : MonoBehaviour {
     private Client client;
 
 	void Start () {
+        playerPosition = new Vector2(195, -75);
         players = new Dictionary<string, Vector3>();
         DontDestroyOnLoad(gameObject);        
     }
