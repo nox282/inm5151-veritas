@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour, IInventory<Item> {
 	void Awake(){
 		inventory = new List<Item>(12);
         for (int i = 0; i < 12; i++){
-            inventory.Add(new Item("None"));
+            inventory.Add(new Item("None", Color.white));
         }
 	}
 
@@ -39,7 +39,7 @@ public class PlayerInventory : MonoBehaviour, IInventory<Item> {
         for (int i = 0; i < 12; i++)
         {
             if (inventory[i].itemName == "None"){
-                inventory[i] = new Item(item.itemName, item.nbItems);
+                inventory[i] = new Item(item.itemName, item.nbItems, item.color);
                 return;
             }
         }

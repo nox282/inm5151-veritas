@@ -133,8 +133,7 @@ public class PlayerController : MonoBehaviour, ICharacter, ISendServer {
         GameObject item = scan();
         if(item == null) return;
 
-        pickUp(new Item(item.GetComponent<ItemCollision>().itemName)); 
-        Debug.Log("Picked up : " + item.GetComponent<ItemCollision>().itemName);
+        pickUp(new Item(item.GetComponent<ItemCollision>().itemName, item.GetComponent<SpriteRenderer>().color));
         if(item != gameObject)
             Destroy(item);
 
