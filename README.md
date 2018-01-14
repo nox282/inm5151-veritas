@@ -1,6 +1,9 @@
 # Veritas Project
 Projet realisé dans le cadre du cours INM5151 à l'UQAM.
 Veritas est un jeu RPG éducatif qui vise les enfants de 5 à 15 ans.
+
+[Lien vers le projet serveur](https://github.com/nox282/inm5151-veritas)
+
 ## Project Members
 * Giulia Cantoni
 * Nicolas Hamard
